@@ -29,8 +29,6 @@ class CyclePageCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = owner?.dataSource?.cyclePageView(owner!, cellForItemAtIndex: indexPath.item % owner!.itemCount)
-//        let cell = owner?.dataSource?.cyclePageView(owner!, cellForItemAtIndex: indexPath.item)
-//        print("\(indexPath.item % owner!.itemCount)" + " -- \(indexPath.item)")
         return cell!
     }
     

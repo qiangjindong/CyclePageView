@@ -19,7 +19,7 @@ public protocol CyclePageViewDataSource: NSObjectProtocol {
 
 open class CyclePageView: UIView {
     
-    static var numberOfCycles: Int = 3
+    static var numberOfCycles: Int = 99
     
     open weak var dataSource: CyclePageViewDataSource?
     open weak var delegate: CyclePageViewDelegate?
