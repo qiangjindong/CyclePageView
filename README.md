@@ -1,1 +1,1 @@
-# CyclePageView
+pod "CyclePageView"
