@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		7AB7B66F242DFA190025F2C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7B66E242DFA190025F2C0 /* Assets.xcassets */; };
 		7AB7B672242DFA190025F2C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7B670242DFA190025F2C0 /* LaunchScreen.storyboard */; };
 		7AB7B67D242DFA830025F2C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7B67C242DFA830025F2C0 /* ViewController.swift */; };
+		7AB7B68324317AE00025F2C0 /* CyclePageView in Frameworks */ = {isa = PBXBuildFile; productRef = 7AB7B68224317AE00025F2C0 /* CyclePageView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AB7B68324317AE00025F2C0 /* CyclePageView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,7 @@
 			);
 			name = CyclePageViewDemo_Swift;
 			packageProductDependencies = (
+				7AB7B68224317AE00025F2C0 /* CyclePageView */,
 			);
 			productName = CyclePageViewDemo_Swift;
 			productReference = 7AB7B662242DFA180025F2C0 /* CyclePageViewDemo_Swift.app */;
@@ -121,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 7AB7B659242DFA180025F2C0;
+			packageReferences = (
+				7AB7B68124317AE00025F2C0 /* XCRemoteSwiftPackageReference "CyclePageView" */,
+			);
 			productRefGroup = 7AB7B663242DFA180025F2C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7AB7B68124317AE00025F2C0 /* XCRemoteSwiftPackageReference "CyclePageView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/qiangjindong/CyclePageView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7AB7B68224317AE00025F2C0 /* CyclePageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7AB7B68124317AE00025F2C0 /* XCRemoteSwiftPackageReference "CyclePageView" */;
+			productName = CyclePageView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7AB7B65A242DFA180025F2C0 /* Project object */;
 }

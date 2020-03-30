@@ -6,8 +6,8 @@
 //  Copyright © 2019 QiangJindong. All rights reserved.
 //
 
-import CyclePageView
 import UIKit
+import CyclePageView
 
 private let cellId = "ViewController_CyclePageViewCell"
 

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CyclePageView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.3"
   s.summary      = "CyclePageView."
 
   s.description  = <<-DESC

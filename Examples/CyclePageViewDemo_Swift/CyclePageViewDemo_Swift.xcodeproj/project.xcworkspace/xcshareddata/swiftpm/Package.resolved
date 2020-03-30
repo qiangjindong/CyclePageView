@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CyclePageView",
+        "repositoryURL": "https://github.com/qiangjindong/CyclePageView",
+        "state": {
+          "branch": null,
+          "revision": "a7ced91dab883e12079ff009582129873743fc8b",
+          "version": "0.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
