@@ -1,7 +1,5 @@
-CyclePageView.xcodeproj/xcuserdata/
-CyclePageView.xcworkspace/
-Pods/
-*.swp
-Podfile.lock
 .DS_Store
-CyclePageView.xcodeproj/project.xcworkspace/xcuserdata/
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/

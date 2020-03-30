@@ -10,7 +10,7 @@ import UIKit
 
 open class CyclePageViewCell: UICollectionViewCell {
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
@@ -18,7 +18,7 @@ open class CyclePageViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var textLabel: UILabel = {
+    open lazy var textLabel: UILabel = {
         let label = UILabel()
         label.frame = contentView.bounds
         self.contentView.addSubview(label)
@@ -26,7 +26,7 @@ open class CyclePageViewCell: UICollectionViewCell {
     }()
     
     
-    lazy var backgroundImageView: UIImageView = {
+    open lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = contentView.bounds
         self.contentView.addSubview(imageView)

@@ -6,6 +6,7 @@
 //  Copyright © 2019 QiangJindong. All rights reserved.
 //
 
+import CyclePageView
 import UIKit
 
 private let cellId = "ViewController_CyclePageViewCell"
@@ -13,7 +14,6 @@ private let cellId = "ViewController_CyclePageViewCell"
 let imageNames = ["img_00", "img_01", "img_02"]
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,21 +31,21 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: CyclePageViewDataSource, CyclePageViewDelegate {
+extension ViewController: CyclePageViewDataSource {
     func numberOfItems(in cyclePageView: CyclePageView) -> Int {
         return imageNames.count
     }
-    
+
     func cyclePageView(_ cyclePageView: CyclePageView, cellForItemAtIndex index: Int) -> CyclePageViewCell {
         let cell = cyclePageView.dequeueReusableCell(withReuseIdentifier: cellId, forIndex: index)
         cell.backgroundImageView.image = UIImage(named: imageNames[index])
         cell.textLabel.text = "\(index)"
         return cell
     }
-    
+}
+
+extension ViewController: CyclePageViewDelegate {
     func cyclePageView(_ cyclePageView: CyclePageView, didSelectItemAtIndex index: Int) {
         print(index)
     }
- 
 }
-
