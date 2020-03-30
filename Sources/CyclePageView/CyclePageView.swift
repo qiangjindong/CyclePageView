@@ -18,7 +18,6 @@ public protocol CyclePageViewDataSource: NSObjectProtocol {
 }
 
 open class CyclePageView: UIView {
-    
     static var numberOfCycles: Int = 99
     
     open weak var dataSource: CyclePageViewDataSource?
@@ -29,9 +28,9 @@ open class CyclePageView: UIView {
     open var scrollDirection: UICollectionView.ScrollDirection = .horizontal {
         didSet {
             flowLayout.scrollDirection = scrollDirection
-            if oldValue == .horizontal && scrollDirection == .vertical {
+            if oldValue == .horizontal, scrollDirection == .vertical {
                 pageControl.transform = CGAffineTransform(rotationAngle: .pi / 2)
-            } else if oldValue == .vertical && scrollDirection == .horizontal {
+            } else if oldValue == .vertical, scrollDirection == .horizontal {
                 pageControl.transform = CGAffineTransform(rotationAngle: -.pi / 2)
             }
             pageControl.scrollDirection = scrollDirection
@@ -56,7 +55,7 @@ open class CyclePageView: UIView {
     
     open var isShowPageControl: Bool = false {
         didSet {
-            self.pageControl.isHidden = !isShowPageControl
+            pageControl.isHidden = !isShowPageControl
         }
     }
     
@@ -65,9 +64,7 @@ open class CyclePageView: UIView {
     var timer: Timer?
     
     var itemCount: Int = 0 {
-        didSet {
-            
-        }
+        didSet {}
     }
     
     var currentPageIndex: Int = 0
@@ -81,6 +78,7 @@ open class CyclePageView: UIView {
     }()
     
     // MARK: - life cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionViewDataSource = CyclePageCollectionViewDataSource(owner: self)
@@ -88,11 +86,11 @@ open class CyclePageView: UIView {
         addSubview(pageControl)
     }
     
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override open func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         flowLayout.itemSize = bounds.size
         collectionView.frame = bounds
@@ -109,6 +107,7 @@ func DLog(_ items: Any) {
 #endif
 
 // MARK: - <UICollectionViewDelegate>
+
 extension CyclePageView: UICollectionViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // 设置collectionView的flowLayout.scrollDirection 会先调用此方法
@@ -138,7 +137,7 @@ extension CyclePageView: UICollectionViewDelegate {
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         startTimer()
     }
-
+    
     // 用户手动操作才会触发
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var page: Int
@@ -178,14 +177,13 @@ extension CyclePageView: UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.cyclePageView?(self, didSelectItemAtIndex: indexPath.item % itemCount)
+        delegate?.cyclePageView?(self, didSelectItemAtIndex: indexPath.item % itemCount)
     }
-    
 }
 
 // MARK: - public function
+
 extension CyclePageView {
-    
     open func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String) {
         collectionView.register(cellClass, forCellWithReuseIdentifier: identifier)
     }
@@ -196,13 +194,12 @@ extension CyclePageView {
 }
 
 // MARK: - 定时器
+
 extension CyclePageView {
-    
     func startTimer() {
         if itemCount <= 1 { return }
         timer = Timer(timeInterval: interval, target: self, selector: #selector(nextPage), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: RunLoop.Mode.common)
-
     }
     
     func stopTimer() {
@@ -210,8 +207,7 @@ extension CyclePageView {
     }
     
     @objc func nextPage() {
-        let nextPage = self.currentPageIndex + 1
-        self.collectionView.scrollToItem(at: .init(item: nextPage, section: 0), at: [], animated: true)
+        let nextPage = currentPageIndex + 1
+        collectionView.scrollToItem(at: .init(item: nextPage, section: 0), at: [], animated: true)
     }
-    
 }

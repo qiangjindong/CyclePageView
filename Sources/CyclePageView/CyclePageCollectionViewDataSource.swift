@@ -8,16 +8,13 @@
 
 import UIKit
 
-
-
 class CyclePageCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    
     weak var owner: CyclePageView?
-    
+
     init(owner: CyclePageView) {
-        self.owner = owner;
+        self.owner = owner
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let count = owner?.dataSource?.numberOfItems(in: owner!)
         owner?.itemCount = count!
@@ -26,11 +23,9 @@ class CyclePageCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         owner?.startTimer()
         return count! > 1 ? count! * CyclePageView.numberOfCycles : count!
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = owner?.dataSource?.cyclePageView(owner!, cellForItemAtIndex: indexPath.item % owner!.itemCount)
         return cell!
     }
-    
-
 }

@@ -11,7 +11,6 @@ import UIKit
 private let margin: CGFloat = 0
 
 open class PageControl: UIPageControl {
-    
     open var selectedImage: UIImage? {
         set {
             setValue(newValue, forKeyPath: "_currentPageImage")
@@ -30,13 +29,13 @@ open class PageControl: UIPageControl {
         }
     }
     
-    override open var currentPage: Int {
+    open override var currentPage: Int {
         didSet {
             resetSubviewsFrame()
         }
     }
     
-    override open func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         resetSubviewsFrame()
     }
@@ -47,7 +46,6 @@ open class PageControl: UIPageControl {
         let unselectedImageWidth = (unselectedImage != nil) ? unselectedImage!.size.width : subviews.last?.frame.size.width ?? 0
         let selectedImageWidth = (selectedImage != nil) ? unselectedImage!.size.width : unselectedImageWidth
         let width = CGFloat(numberOfPages - 1) * (unselectedImageWidth + margin) + selectedImageWidth
-        
         
         frame.size.width = width
         frame.size.height = (unselectedImage != nil) ? unselectedImage!.size.height : subviews.last?.frame.size.height ?? 0
@@ -77,5 +75,4 @@ open class PageControl: UIPageControl {
             }
         }
     }
-
 }

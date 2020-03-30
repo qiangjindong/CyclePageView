@@ -9,12 +9,11 @@
 import UIKit
 
 open class CyclePageViewCell: UICollectionViewCell {
-    
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -24,7 +23,6 @@ open class CyclePageViewCell: UICollectionViewCell {
         self.contentView.addSubview(label)
         return label
     }()
-    
     
     open lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
