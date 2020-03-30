@@ -1,6 +1,6 @@
 ## CyclePageView
 
-![](http://img.shields.io/travis/qiangjindong/CyclePageView.svg)![](https://img.shields.io/cocoapods/v/CyclePageView.svg?style=flat)![](https://img.shields.io/badge/language-swift-orange.svg)
+![](https://img.shields.io/cocoapods/v/CyclePageView.svg?style=flat) ![](https://img.shields.io/badge/language-swift-orange.svg)
 
 封装无限循环轮播图，swift语言实现。类似的UICollectionview的Api，由代理提供数据源及响应事件处理。一样的配方，熟悉的味道。
 
