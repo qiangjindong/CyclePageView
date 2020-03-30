@@ -1,20 +1,11 @@
-osx_image: xcode11.3.1
-language: objective-c
 
-env:
-  global:
-    - LANG=en_US.UTF-8
-    - LC_ALL=en_US.UTF-8
-    - XCODE_PROJECT=Examples/CyclePageViewDemo_Swift/CyclePageViewDemo_Swift.xcodeproj
-  matrix:
-    - SCHEME="CyclePageViewDemo_Swift"
+osx_image: xcode11.3
 
-before_install:
-  - gem install xcpretty --no-document --quiet
+language: swift
 
-script:
-  - set -o pipefail
-  - xcodebuild -project "$XCODE_PROJECT" -scheme "$SCHEME" -configuration Debug clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
+xcode_project: Examples/CyclePageViewDemo_Swift/CyclePageViewDemo_Swift.xcodeproj # path to your xcodeproj folder
 
-after_success:
-  - sleep 3
+xcode_scheme: CyclePageViewDemo_Swift
+
+#xcode_destination: platform=iOS Simulator,OS=13.3,name=iPhone X
+
